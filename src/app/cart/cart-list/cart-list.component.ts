@@ -18,6 +18,25 @@ export class CartListComponent {
       name: 'Paracetamol',
       price: 222,
       quantity: 4,
+      from: '911',
+    },
+    {
+      id: 'i1',
+      imgUrl:
+        'https://root.tblcdn.com/img/goods/bcd06d58-d8c8-4a14-964c-e63cc752a71d/1/img_0.jpg?v=AAAAAAnhZ3Y',
+      name: 'Paracetamol',
+      price: 222,
+      quantity: 4,
+      from: '911',
+    },
+    {
+      id: 'i1',
+      imgUrl:
+        'https://root.tblcdn.com/img/goods/bcd06d58-d8c8-4a14-964c-e63cc752a71d/1/img_0.jpg?v=AAAAAAnhZ3Y',
+      name: 'Paracetamol',
+      price: 222,
+      quantity: 4,
+      from: '911',
     },
   ];
 }

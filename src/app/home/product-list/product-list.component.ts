@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
+import { ChooseStoreComponent } from './choose-store/choose-store.component';
 
 @Component({
   selector: 'app-product-list',
@@ -46,6 +47,34 @@ export class ProductListComponent {
         'https://root.tblcdn.com/img/goods/0f5f3990-9bc6-40fc-bd92-feb83c45300d/1/img_0.jpg?v=AAAAAAn3YD4',
       name: 'Aspirin',
       price: 140,
+      id: 'pr1',
+    },
+    {
+      imgUrl:
+        'https://root.tblcdn.com/img/goods/ad39fcee-b054-40cd-8ce2-0090103470fd/1/img_0.jpg?v=AAAAAAiBTs',
+      name: 'Analgin',
+      price: 45.5,
+      id: 'pr1',
+    },
+    {
+      imgUrl:
+        'https://root.tblcdn.com/img/goods/ad39fcee-b054-40cd-8ce2-0090103470fd/1/img_0.jpg?v=AAAAAAiBTs',
+      name: 'Analgin',
+      price: 45.5,
+      id: 'pr1',
+    },
+    {
+      imgUrl:
+        'https://root.tblcdn.com/img/goods/ad39fcee-b054-40cd-8ce2-0090103470fd/1/img_0.jpg?v=AAAAAAiBTs',
+      name: 'Analgin',
+      price: 45.5,
+      id: 'pr1',
+    },
+    {
+      imgUrl:
+        'https://root.tblcdn.com/img/goods/ad39fcee-b054-40cd-8ce2-0090103470fd/1/img_0.jpg?v=AAAAAAiBTs',
+      name: 'Analgin',
+      price: 45.5,
       id: 'pr1',
     },
     {

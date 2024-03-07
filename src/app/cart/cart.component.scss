@@ -1,6 +1,18 @@
 :host {
-  display: flex;
-  flex-direction: row;
-  margin: 2rem 5rem;
-  gap: 1rem;
+  .cart-component {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    height: 80%;
+    margin: 1rem;
+  }
+
+  .footer {
+    margin: 1rem;
+    text-align: end;
+
+    button {
+      margin-left: 1rem;
+    }
+  }
 }
