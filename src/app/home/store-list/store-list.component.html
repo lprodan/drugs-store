@@ -1,0 +1,21 @@
+<mat-card class="mat-card">
+  <mat-card-header>
+    <mat-card-title>Shops</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-nav-list role="navigation">
+      <a
+        mat-list-item
+        *ngFor="let item of list"
+        routerLink="{{ item.id }}"
+        routerLinkActive="mdc-list-item--activated"
+      >
+        <app-store-list-item
+          [id]="item.id"
+          [name]="item.name"
+          [logoUrl]="item.logoUrl"
+        ></app-store-list-item>
+      </a>
+    </mat-nav-list>
+  </mat-card-content>
+</mat-card>

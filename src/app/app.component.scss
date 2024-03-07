@@ -1,0 +1,20 @@
+header {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0px 6px 10px, rgba(0, 0, 0, 0.12) 0px 1px 18px;
+  background: rgb(103, 58, 183);
+
+  nav {
+    ul {
+      gap: 1rem;
+      margin: 0;
+      padding: 20px;
+      list-style: none;
+      display: flex;
+      align-items: center;
+
+      a.active {
+        background: #4d2b88;
+      }
+    }
+  }
+}

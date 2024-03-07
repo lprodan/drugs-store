@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+
+  img {
+    width: auto;
+    height: 2em;
+    border-radius: 0.3rem;
+  }
+}
