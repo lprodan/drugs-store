@@ -1,20 +1,17 @@
 import { Component } from '@angular/core';
 import {
-  FormsModule,
-  ReactiveFormsModule,
   FormControl,
   FormGroupDirective,
+  FormsModule,
   NgForm,
+  ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { ErrorStateMatcher, MatNativeDateModule } from '@angular/material/core';
-import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-  BrowserAnimationsModule,
-  provideAnimations,
-} from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -31,7 +28,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-form-item',
+  selector: 'app-order-form',
   standalone: true,
   imports: [
     FormsModule,
@@ -39,12 +36,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MatInputModule,
     ReactiveFormsModule,
     MatNativeDateModule,
+    MatCardModule,
   ],
-  providers: [provideAnimations()],
-  templateUrl: './form-item.component.html',
-  styleUrl: './form-item.component.scss',
+  templateUrl: './order-form.component.html',
+  styleUrl: './order-form.component.scss',
 })
-export class FormItemComponent {
+export class OrderFormComponent {
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,

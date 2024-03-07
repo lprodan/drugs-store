@@ -1,5 +1,15 @@
 <mat-card>
   <mat-card-content>
-    <app-cart-list-item></app-cart-list-item>
+    @for (item of items; track item.id) {
+    <app-cart-list-item
+      [id]="item.id"
+      [imgUrl]="item.imgUrl"
+      [name]="item.name"
+      [price]="item.price"
+      [quantity]="item.quantity"
+    ></app-cart-list-item>
+    } @empty {
+    <li>There are no items.</li>
+    }
   </mat-card-content>
 </mat-card>

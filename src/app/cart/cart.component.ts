@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CartListComponent } from './cart-list/cart-list.component';
-import { FormComponent } from './form/form.component';
+import { OrderFormComponent } from './order-form/order-form.component';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [FormComponent, CartListComponent],
+  imports: [OrderFormComponent, CartListComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })

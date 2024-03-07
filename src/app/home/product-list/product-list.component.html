@@ -1,11 +1,14 @@
 <mat-card>
   <mat-card-content>
+    @for (item of products; track item.id) {
     <app-product-list-item
-      *ngFor="let item of products"
       [id]="item.id"
       [imgUrl]="item.imgUrl"
       [price]="item.price"
       [name]="item.name"
     ></app-product-list-item>
+    } @empty {
+    <span>There are no items.</span>
+    }
   </mat-card-content>
 </mat-card>

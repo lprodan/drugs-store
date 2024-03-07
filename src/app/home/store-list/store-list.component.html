@@ -4,9 +4,9 @@
   </mat-card-header>
   <mat-card-content>
     <mat-nav-list role="navigation">
+      @for (item of list; track item.id) {
       <a
         mat-list-item
-        *ngFor="let item of list"
         routerLink="{{ item.id }}"
         routerLinkActive="mdc-list-item--activated"
       >
@@ -16,6 +16,9 @@
           [logoUrl]="item.logoUrl"
         ></app-store-list-item>
       </a>
+      } @empty {
+      <span> There are no items.</span>
+      }
     </mat-nav-list>
   </mat-card-content>
 </mat-card>
