@@ -1,8 +1,17 @@
 <div class="cart-component">
-  <app-order-form></app-order-form>
-  <app-cart-list></app-cart-list>
+  <app-order-form [form]="form" />
+  <app-cart-list [list]="cart$ | async" />
 </div>
 <div class="footer">
-  <span>Total price: <strong>9999</strong></span>
-  <button mat-raised-button>Order now</button>
+  <span
+    >Total price:
+    <strong>{{ totalPrice$ | async | currency : "₴" }}</strong></span
+  >
+  <button
+    mat-raised-button
+    [disabled]="!(totalPrice$ | async) || !form.valid || loading"
+    (click)="order()"
+  >
+    Order now
+  </button>
 </div>

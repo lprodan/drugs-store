@@ -3,57 +3,39 @@
     <mat-card-title>Please, fill in the data</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form>
+    <form [formGroup]="form()">
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input
-          type="email"
-          matInput
-          [formControl]="emailFormControl"
-          [errorStateMatcher]="matcher"
-          placeholder=""
-        />
-        @if (emailFormControl.hasError('email') &&
-        !emailFormControl.hasError('required')) {
+        <input type="email" matInput formControlName="email" placeholder="" />
+        @if (form().get('email')?.hasError('email') &&
+        !form().get("email")?.hasError('required')) {
         <mat-error>Please enter a valid email address</mat-error>
-        } @if (emailFormControl.hasError('required')) {
+        } @if (form().get("email")?.hasError('required')) {
         <mat-error>Email is <strong>required</strong></mat-error>
         }
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Name</mat-label>
-        <input
-          type="text"
-          matInput
-          [formControl]="nameFormControl"
-          [errorStateMatcher]="matcher"
-          placeholder=""
-        />
-        @if (nameFormControl.hasError('minlength') &&
-        !nameFormControl.hasError('required')) {
+        <input type="text" matInput formControlName="name" placeholder="" />
+        @if (form().get('name')?.hasError('minlength') &&
+        !form().get('name')?.hasError('required')) {
         <mat-error>Minimum length is 5 symbols</mat-error>
-        } @if (nameFormControl.hasError('maxlength') &&
-        !nameFormControl.hasError('required')) {
+        } @if (form().get('name')?.hasError('maxlength') &&
+        !form().get('name')?.hasError('required')) {
         <mat-error>Maximum length is 20 symbols</mat-error>} @if
-        (nameFormControl.hasError('required')) {
+        (form().get('name')?.hasError('required')) {
         <mat-error>Name is <strong>required</strong></mat-error>
         }
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Phone</mat-label>
-        <input
-          type="tel"
-          matInput
-          [formControl]="phoneFormControl"
-          [errorStateMatcher]="matcher"
-          placeholder=""
-        />
-        @if (phoneFormControl.hasError('pattern') &&
-        !phoneFormControl.hasError('required')) {
+        <input type="tel" matInput formControlName="phone" placeholder="" />
+        @if (form().get('phone')?.hasError('pattern') &&
+        !form().get('phone')?.hasError('required')) {
         <mat-error>Please enter a valid phone number</mat-error>
-        } @if (phoneFormControl.hasError('required')) {
+        } @if (form().get('phone')?.hasError('required')) {
         <mat-error>Phone is <strong>required</strong></mat-error>
         }
       </mat-form-field>
@@ -63,17 +45,16 @@
         <textarea
           type="text"
           matInput
-          [formControl]="addressFormControl"
-          [errorStateMatcher]="matcher"
+          formControlName="address"
           placeholder=""
         ></textarea>
-        @if (addressFormControl.hasError('minlength') &&
-        !addressFormControl.hasError('required')) {
+        @if (form().get('address')?.hasError('minlength') &&
+        !form().get('address')?.hasError('required')) {
         <mat-error>Minimum length is 10 symbols</mat-error>
-        } @if (addressFormControl.hasError('maxlength') &&
-        !addressFormControl.hasError('required')) {
+        } @if (form().get('address')?.hasError('maxlength') &&
+        !form().get('address')?.hasError('required')) {
         <mat-error>Maximum length is 100 symbols</mat-error>} @if
-        (addressFormControl.hasError('required')) {
+        (form().get('address')?.hasError('required')) {
         <mat-error>Adress is <strong>required</strong></mat-error>
         }
       </mat-form-field>

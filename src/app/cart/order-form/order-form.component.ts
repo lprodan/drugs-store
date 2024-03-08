@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, inject, input } from '@angular/core';
 import {
   FormControl,
   FormGroupDirective,
@@ -6,12 +6,17 @@ import {
   NgForm,
   ReactiveFormsModule,
   Validators,
+  FormGroup,
 } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { ErrorStateMatcher, MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { ToastrService } from 'ngx-toastr';
+import { Observable, Subscription } from 'rxjs';
+import { LocalCartService } from '../../services/local-cart.service';
+import { ApiService } from '../../services/api.service';
+import { OrderInfo } from '../../types/order-info';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -42,27 +47,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrl: './order-form.component.scss',
 })
 export class OrderFormComponent {
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  private readonly toastr = inject(ToastrService);
+  private readonly localCart = inject(LocalCartService);
+  private readonly api = inject(ApiService);
 
-  nameFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(5),
-    Validators.maxLength(20),
-  ]);
-
-  phoneFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^\+\d{10,15}$/),
-  ]);
-
-  addressFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(10),
-    Validators.maxLength(100),
-  ]);
-
-  matcher = new MyErrorStateMatcher();
+  form = input.required<FormGroup>();
 }

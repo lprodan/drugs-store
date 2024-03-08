@@ -1,5 +1,5 @@
-import { Injectable, inject } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LocalCartItem } from '../types/local-cart-item';
 import { LocalStorage } from './local-storage';
 
@@ -49,5 +49,9 @@ export class LocalCartService {
     }
 
     this.localStorage.state = state;
+  }
+
+  removeAll() {
+    this.localStorage.state = [];
   }
 }

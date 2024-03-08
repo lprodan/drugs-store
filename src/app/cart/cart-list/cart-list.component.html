@@ -1,16 +1,20 @@
 <mat-card>
   <mat-card-content>
-    @for (item of items; track item.id) {
+    @for (item of list(); track item.storeId + item.productId) {
     <app-cart-list-item
-      [id]="item.id"
-      [imgUrl]="item.imgUrl"
-      [name]="item.name"
-      [price]="item.price"
-      [quantity]="item.quantity"
-      [from]="item.from"
+      [storeId]="item.storeId"
+      [productId]="item.productId"
+      [imgUrl]="item.product.imgUrl"
+      [name]="item.product.name"
+      [price]="item.product.price"
+      [quantity]="item.count"
+      [from]="item.store.name"
     ></app-cart-list-item>
     } @empty {
-    <li>There are no items.</li>
+    <h2>
+      There are no items. <br />
+      Go to <a routerLink="/store">Store</a> and pick your products.😊
+    </h2>
     }
   </mat-card-content>
 </mat-card>

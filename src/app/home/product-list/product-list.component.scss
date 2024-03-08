@@ -1,11 +1,15 @@
 :host {
   width: 100%;
-  overflow: auto;
   height: 100%;
 
-  mat-card-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+  mat-card {
+    height: 100%;
+    overflow: auto;
+
+    mat-card-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
   }
 }

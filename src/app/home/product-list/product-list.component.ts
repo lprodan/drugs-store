@@ -9,7 +9,8 @@ import {
 } from '@angular/router';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { ApiService } from '../../services/api.service';
-import { switchMap } from 'rxjs';
+import { combineLatest, forkJoin, map, switchMap, zip } from 'rxjs';
+import { LocalFavoritesService } from '../../services/local-favorites.service';
 
 @Component({
   selector: 'app-product-list',
@@ -26,10 +27,20 @@ import { switchMap } from 'rxjs';
   styleUrl: './product-list.component.scss',
 })
 export class ProductListComponent {
-  private apiService = inject(ApiService);
-  private route = inject(ActivatedRoute);
+  private readonly apiService = inject(ApiService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly localFavourite = inject(LocalFavoritesService);
 
-  list$ = this.route.params.pipe(
-    switchMap((params) => this.apiService.getProducts(params['id']))
+  list$ = combineLatest([
+    this.route.params.pipe(
+      switchMap((params) => this.apiService.getProducts(params['id']))
+    ),
+    this.localFavourite.getAll(),
+  ]).pipe(
+    map(([products, favs]) =>
+      products.sort(
+        (a, b) => (favs.has(b.id) ? 1 : 0) - (favs.has(a.id) ? 1 : 0)
+      )
+    )
   );
 }

@@ -14,6 +14,7 @@ import {
 } from '@angular/fire/analytics';
 import { ApiService } from './services/api.service';
 import { FirestoreApiService } from './services/firestore-api.service';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -37,6 +38,11 @@ export const appConfig: ApplicationConfig = {
     ScreenTrackingService,
     UserTrackingService,
     importProvidersFrom(provideFirestore(() => getFirestore())),
+    provideToastr({
+      progressBar: true,
+      preventDuplicates: true,
+      timeOut: 10000,
+    }),
     {
       provide: ApiService,
       useClass: FirestoreApiService,

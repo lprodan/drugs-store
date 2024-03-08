@@ -1,5 +1,9 @@
 :host {
   width: 100%;
-  overflow: auto;
   height: 100%;
+
+  mat-card {
+    height: 100%;
+    overflow: auto;
+  }
 }
