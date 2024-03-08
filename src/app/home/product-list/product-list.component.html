@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header></mat-card-header>
   <mat-card-content>
-    @for (item of products; track item.id) {
+    @for (item of list$ | async; track item.id) {
     <app-product-list-item
       [id]="item.id"
       [imgUrl]="item.imgUrl"

@@ -4,7 +4,7 @@
   </mat-card-header>
   <mat-card-content>
     <mat-nav-list role="navigation">
-      @for (item of list; track item.id) {
+      @for (item of list$ | async; track item.id) {
       <a
         mat-list-item
         routerLink="{{ item.id }}"

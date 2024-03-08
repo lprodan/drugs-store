@@ -16,8 +16,12 @@
           color="primary"
           routerLink="/cart"
           routerLinkActive="active"
-          >Cart</a
         >
+          <span>Cart</span>
+          @if (cartCount$ | async; as cartCount) {
+          <span> ({{ cartCount }})</span>
+          }
+        </a>
       </li>
     </ul>
   </nav>
