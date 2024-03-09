@@ -15,6 +15,6 @@ jobs:
         build_configuration: production
         base_href: /drug-store/
         deploy_branch: gh-pages
-        angular_dist_build_folder: dist/drug-store
+        angular_dist_build_folder: dist/drug-store/browser
 permissions:
   contents: write
